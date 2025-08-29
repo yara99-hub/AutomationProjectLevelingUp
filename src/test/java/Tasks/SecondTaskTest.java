@@ -18,7 +18,7 @@ public class SecondTaskTest {
      */
 
     @Test
-    public void test(){
+    public void testLogo(){
         driver.get("https://duckduckgo.com/");
         By logo = By.xpath("//div[contains(@class,'Desktop')]//img");
         boolean isLogoDisplayed = driver.findElement(logo).isDisplayed();
