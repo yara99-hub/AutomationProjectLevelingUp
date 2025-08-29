@@ -3,19 +3,34 @@ package Tasks;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class FirstTaskTest {
 
-    WebDriver driver = new ChromeDriver();
+    private WebDriver driver;
+
+    /**
+     * Open Google Chrome
+     * Navigate to [<a href="https://duckduckgo.com/">duckduckgo</a>]
+     * Assert that the page title is [Google]
+     * Close Google Chrome
+     */
+
     @Test
     public void test(){
-        driver.manage().window().maximize();
         driver.get("https://duckduckgo.com/");
-        Assert.assertEquals(driver.getTitle(),"Google");
+        String title = driver.getTitle();
+        String expectedTitle = "Google";
+        Assert.assertEquals(title, expectedTitle, "Title is not as expected");
     }
-    @AfterTest
+
+    @BeforeMethod
+    public void setUp(){
+        driver = new ChromeDriver();
+    }
+    @AfterMethod
     public void tearDown(){
         driver.quit();
     }
