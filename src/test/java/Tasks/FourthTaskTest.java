@@ -25,8 +25,6 @@ public class FourthTaskTest {
         By fourthResult = By.xpath("(//div[@class='ikg2IXiCD14iVX7AdZo1']//span)[4]");
         String actualTitle = driver.findElement(fourthResult).getText();
         String expectedTitle = "TestNG Tutorial";
-        System.out.println(actualTitle);
-        System.out.println(expectedTitle);
         Assert.assertEquals(actualTitle, expectedTitle, "Fourth result title is not as expected");
     }
 
